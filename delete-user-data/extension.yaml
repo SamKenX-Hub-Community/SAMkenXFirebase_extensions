@@ -13,7 +13,7 @@
 # limitations under the License.
 
 name: delete-user-data
-version: 0.1.15
+version: 0.1.16
 specVersion: v1beta
 
 displayName: Delete User Data
@@ -62,7 +62,7 @@ resources:
       Cloud Storage.
     properties:
       location: ${param:LOCATION}
-      runtime: nodejs14
+      runtime: nodejs16
       eventTrigger:
         eventType: providers/firebase.auth/eventTypes/user.delete
         resource: projects/${param:PROJECT_ID}
@@ -71,6 +71,7 @@ resources:
     type: firebaseextensions.v1beta.function
     properties:
       location: ${LOCATION}
+      runtime: nodejs16
       eventTrigger:
         eventType: google.pubsub.topic.publish
         resource: projects/${PROJECT_ID}/topics/ext-${EXT_INSTANCE_ID}-discovery
@@ -79,6 +80,7 @@ resources:
     type: firebaseextensions.v1beta.function
     properties:
       location: ${LOCATION}
+      runtime: nodejs16
       eventTrigger:
         eventType: google.pubsub.topic.publish
         resource: projects/${PROJECT_ID}/topics/ext-${EXT_INSTANCE_ID}-deletion
@@ -275,7 +277,7 @@ params:
   - param: SEARCH_FUNCTION
     label: Search function URL
     description: >-
-      Specify a function URL to call that will return a list of document paths to delete.
+      Specify a URL to call that will return a list of document paths to delete. The extension will send a `POST` request to the specified `URL`, with the `uid` of the deleted user will be provided in the body of the request. The endpoint specified should return an array of firestore paths to delete.
     example: https://us-west1-my-project-id.cloudfunctions.net/myTransformFunction
     type: string
     required: false
