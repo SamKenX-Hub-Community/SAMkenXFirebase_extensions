@@ -1,3 +1,17 @@
+## Version 0.1.39
+
+fixed - add support for jpg content types
+
+## Version 0.1.38
+
+feature - bump to node 18
+
+## Version 0.1.37
+
+feature - bump to nodejs16
+
+fixed - correct include path list description
+
 ## Version 0.1.36
 
 fixed - added fixes for gcs vulnerabilities

@@ -1,3 +1,29 @@
+## Version 0.1.35
+
+fixed - add missing locations back in
+
+fixed - use module instead namespace
+
+fixed - added e2e testing, upgraded dependencies
+
+## Version 0.1.34
+
+feat - added failure policy
+
+fixed - use module instead namespace
+
+fixed - ensure data is correctly serialized before queuing
+
+## Version 0.1.33
+
+feature - improved startup initialization and data synchronization
+
+feature - bump to node 18
+
+## Version 0.1.32
+
+feature - bump to node 16
+
 ## Version 0.1.31
 
 fixed - Added support for callable transform functions
